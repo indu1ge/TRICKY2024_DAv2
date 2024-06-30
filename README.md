@@ -27,7 +27,7 @@ pip3 install h5py scikit-image tqdm bitsandbytes wandb tabulate
 ```
 
 ### Evaluate
-First, you need to download the pretrained checkpoint to 'ckpt/'.
+First, you need to download the pretrained [checkpoint](https://rec.ustc.edu.cn/share/78c49dc0-36f7-11ef-9cfa-0b31d7fcdbe9) to 'ckpt/'.
 
 ```bash
 # generate the initial depth predictions
@@ -42,7 +42,7 @@ python filter.py
 cd data/tricky/test_output/final/npy_ensemble_light_trunc3_mediumfilter_5
 zip -r submission.zip ./*
 ```
-
+Or, you can directly download the submission.zip [here](https://rec.ustc.edu.cn/share/4363c230-36f9-11ef-8ccc-8f11383f55b9).
 
 ## LICENSE
 
