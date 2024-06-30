@@ -1,0 +1,10 @@
+checkpoints
+data
+**__pycache__**
+**.png
+metric_depth/log
+.vscode
+assets
+single_infer.py
+test.ipynb
+.gitignore
