@@ -11,6 +11,8 @@ Our method is based on Depth Anything V2. By finetuning on the Booster training 
       |-Appliances
       |-Balance
         ...
+|-ckpt
+  |-weights
 ```
 
 ### Installation
@@ -25,24 +27,21 @@ pip3 install h5py scikit-image tqdm bitsandbytes wandb tabulate
 ```
 
 ### Evaluate
-First, you need to download the pretrained checkpoint here.
+First, you need to download the pretrained checkpoint to 'ckpt/'.
 
 ```bash
 # generate the initial depth predictions
 bash generate.sh
-
+# ensemble the depth predictions under different lightning conditions
+python ensemble_light.py
+# truncate the predictions to three decimal places to meet the maximum submission size on Codalab
+python round.py
+# apply medium filtering for better results
+python filter.py
+# zip the .npy files into submission.zip
+cd data/tricky/test_output/final/npy_ensemble_light_trunc3_mediumfilter_5
+zip -r submission.zip ./*
 ```
-Options:
-- `--img-path`: You can either 1) point it to an image directory storing all interested images, 2) point it to a single image, or 3) point it to a text file storing all image paths.
-- `--input-size` (optional): By default, we use input size `518` for model inference. **You can increase the size for even more fine-grained results.**
-- `--pred-only` (optional): Only save the predicted depth map, without raw image.
-- `--grayscale` (optional): Save the grayscale depth map, without applying color palette.
-
-For example:
-```bash
-python run.py --encoder vitg --img-path assets/examples --outdir depth_vis
-```
-
 
 
 ## LICENSE

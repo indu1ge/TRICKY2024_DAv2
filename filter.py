@@ -8,8 +8,8 @@ from scipy.ndimage import median_filter
 EXTENSION_LIST = ['npy']
 
 
-input_npy_dir = '/zssd/szy/Depth-Anything-V2/data/tricky/test_output/vitg_bs1_742_lr5e-7_mse_valid_mask_epoch100/epoch_99/npy_ensemble_light'
-output_npy_dir = '/zssd/szy/Depth-Anything-V2/data/tricky/test_output/vitg_bs1_742_lr5e-7_mse_valid_mask_epoch100/epoch_99/npy_ensemble_light_trunc3_mediumfilter_5_new'
+input_npy_dir = 'data/tricky/test_output/final/npy_ensemble_light_trunc3'
+output_npy_dir = 'data/tricky/test_output/final/npy_ensemble_light_trunc3_mediumfilter_5'
 os.makedirs(output_npy_dir)
 
 for class_folder in os.listdir(input_npy_dir):
